@@ -137,7 +137,6 @@ public class MainActivity extends ActionBarActivity implements
 		}
 		
 		/* ------------ Sliding Menu onCreate ------------ */
- 
         mTitle = mDrawerTitle = getTitle();
  
         // load slide menu items
@@ -152,7 +151,7 @@ public class MainActivity extends ActionBarActivity implements
  
         navDrawerItems = new ArrayList<NavDrawerItem>();
  
-    	// adding nav drawer items to array
+    	// Adding nav drawer items to array
  		// Home
  		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
  		// Financials
@@ -169,24 +168,24 @@ public class MainActivity extends ActionBarActivity implements
         
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
  
-        // setting the nav drawer list adapter
+        // Setting the nav drawer list adapter
         adapter = new NavDrawerListAdapter(getApplicationContext(),
                 navDrawerItems);
         mDrawerList.setAdapter(adapter);
  
-        // enabling action bar app icon and behaving it as toggle button
+        // Enabling action bar app icon and behaving it as toggle button
         getActionBar().setDisplayHomeAsUpEnabled(true);
         // getActionBar().setHomeButtonEnabled(true);
  
         
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.drawable.ic_drawer, //nav menu toggle icon
-                R.string.app_name, // nav drawer open - description for accessibility
-                R.string.app_name // nav drawer close - description for accessibility
+                R.drawable.ic_drawer, 	// nav menu toggle icon
+                R.string.app_name, 		// nav drawer open - description for accessibility
+                R.string.app_name 		// nav drawer close - description for accessibility
         ){
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
-                // calling onPrepareOptionsMenu() to show action bar icons
+                // Calling onPrepareOptionsMenu() to show action bar icons
                 invalidateOptionsMenu();
             }
  
@@ -196,14 +195,14 @@ public class MainActivity extends ActionBarActivity implements
                 ViewPager view = (ViewPager) findViewById(R.id.pager);
                 view.setVisibility(View.GONE);           
                 
-                // calling onPrepareOptionsMenu() to hide action bar icons
+                // Calling onPrepareOptionsMenu() to hide action bar icons
                 invalidateOptionsMenu();
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
  
         if (savedInstanceState == null) {
-            // on first time display view for first nav item
+            // On first time display view for first nav item
             displayView(0);
         }	
 	}
@@ -230,16 +229,16 @@ public class MainActivity extends ActionBarActivity implements
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
-        // toggle nav drawer on selecting action bar app icon/title
+        // Toggle nav drawer on selecting action bar app icon/title
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up button, as long
 		// as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
         case R.id.add_task:
-        	//TODO: remove toast, add activity
+        	//TODO: Remove toast, add activity
         	//Toast.makeText(this,"Menu item 2 selected",Toast.LENGTH_SHORT).show();
         	ViewPager view = (ViewPager) findViewById(R.id.pager);
             view.setVisibility(View.GONE);
@@ -336,7 +335,7 @@ public class MainActivity extends ActionBarActivity implements
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                 long id) {
-            // display view for selected nav drawer item
+            // Display view for selected nav drawer item
             displayView(position);
         }
     }
@@ -353,7 +352,7 @@ public class MainActivity extends ActionBarActivity implements
      */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        // if nav drawer is opened, hide the action items
+        // If nav drawer is opened, hide the action items
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
         menu.findItem(R.id.add_task).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
@@ -363,24 +362,31 @@ public class MainActivity extends ActionBarActivity implements
      * Diplaying fragment view for selected nav drawer list item
      * */
     private void displayView(int position) {
-        // update the main content by replacing fragments
+        // Update the main content by replacing fragments
         Fragment fragment = null;
+        final ActionBar actionBar = getSupportActionBar();
+        
         switch (position) {
         case 0:
         	fragment = new HomeFragment();
+        	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         	ViewPager view = (ViewPager) findViewById(R.id.pager);
             view.setVisibility(View.VISIBLE);
             break;
-        case 1:
+        case 1: 	
+        	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
             fragment = new FinancialsFragment();
             break;
         case 2:
+        	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
             fragment = new GroupFragment();
             break;
         case 3:
+        	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
             fragment = new HistoryFragment();
             break;
         case 4:
+        	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         	fragment = new SettingsFragment();
             break;
         default:
@@ -392,18 +398,16 @@ public class MainActivity extends ActionBarActivity implements
             fragmentManager.beginTransaction()
                     .replace(R.id.frame_container, fragment).commit();
  
-            // update selected item and title, then close the drawer
+            // Update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
             setTitle(navMenuTitles[position]);
             mDrawerLayout.closeDrawer(mDrawerList);
         } else {
-            // error in creating fragment
             Log.e("MainActivity", "Error in creating fragment");
         }
     }
     
-    //Method for changing fragment
     public void changeFragment(Fragment fragment){
     	if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -422,8 +426,8 @@ public class MainActivity extends ActionBarActivity implements
     }
  
     /**
-     * When using the ActionBarDrawerToggle, you must call it during
-     * onPostCreate() and onConfigurationChanged()...
+     * When using the ActionBarDrawerToggle, it must be called during
+     * onPostCreate() and onConfigurationChanged()
      */
  
     @Override
