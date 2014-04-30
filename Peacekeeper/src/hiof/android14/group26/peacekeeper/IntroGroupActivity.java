@@ -3,6 +3,8 @@ package hiof.android14.group26.peacekeeper;
 import android.os.Bundle;
 import android.view.View;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 public class IntroGroupActivity extends Activity {
@@ -25,4 +27,27 @@ public class IntroGroupActivity extends Activity {
 
 		startActivity(intent);
 	}
+	
+	public void showInfo(View view){
+		// Getting the alert box for use below
+		AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
+
+		// Strings used
+		String okBtn = getResources().getString(R.string.ok);
+		String alertBoxContent = getResources().getString(R.string.infoBox);
+
+		// Set the message to display
+		alertbox.setMessage(alertBoxContent);
+
+		// Add a neutral button to the alert box and assign a click listener
+		alertbox.setNeutralButton(okBtn, new DialogInterface.OnClickListener() {
+
+		public void onClick(DialogInterface arg0, int arg1) {
+			// the button was clicked - box closes
+		}
+		});
+
+		// show it
+		alertbox.show();
+		}
 }
