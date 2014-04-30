@@ -71,7 +71,7 @@ public class DataSource {
 	}
 	
 	//Create task with responsible household member
-	public Tasks createTaskResponsibleHouseholdMember(String description, int price, String creation_date, String due_date, String creator, String responsible){
+	public Tasks createTaskResponsibleHouseholdMember(String description, double price, String creation_date, String due_date, int creator, int responsible){
 		ContentValues values = new ContentValues();
 		
 		values.put(TaskTable.COLUMN_DESCRIPTION, description);
