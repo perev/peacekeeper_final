@@ -54,7 +54,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hiof.android14.group26.peacekeeper.LogOutActivity" />
         </activity>
-         <activity
+        <activity
             android:name="hiof.android14.group26.peacekeeper.LoggedInActivity"
             android:label="@string/title_activity_login"
             android:parentActivityName="hiof.android14.group26.peacekeeper.LogInActivity" >
@@ -102,6 +102,19 @@
             android:name="hiof.android14.group26.peacekeeper.MainTaskActivity"
             android:label="@string/title_activity_main_task" >
         </activity>
+
+        <!-- Broadcast Receiver that will process Appwidget Updates -->
+        <receiver
+            android:name=".Peacekeeper"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/hello_widget_provider" />
+        </receiver>
     </application>
 
 </manifest>

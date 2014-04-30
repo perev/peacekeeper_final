@@ -129,5 +129,6 @@
 		If roommates has a group created already, we strongly suggest you to join it.  
     </string>
     <string name="leaveGroup">Leave Group</string>
+    <string name="widget_text">Testing widget</string>
 
 </resources>
