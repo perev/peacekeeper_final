@@ -194,12 +194,7 @@ public class MainActivity extends ActionBarActivity implements
                 getActionBar().setTitle(mDrawerTitle);
                 
                 ViewPager view = (ViewPager) findViewById(R.id.pager);
-                view.setVisibility(View.GONE);
-                
-                //TODO: should change this later, probably not best practise
-                ActionBar actionBar = getSupportActionBar();
-        		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-                
+                view.setVisibility(View.GONE);           
                 
                 // calling onPrepareOptionsMenu() to hide action bar icons
                 invalidateOptionsMenu();
@@ -373,10 +368,6 @@ public class MainActivity extends ActionBarActivity implements
         switch (position) {
         case 0:
         	fragment = new HomeFragment();
-        	
-        	ActionBar actionBar = getSupportActionBar();
-    		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        	
         	ViewPager view = (ViewPager) findViewById(R.id.pager);
             view.setVisibility(View.VISIBLE);
             break;
