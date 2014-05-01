@@ -1331,13 +1331,13 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_settings=0x7f060074;
+        public static final int action_settings=0x7f060075;
         public static final int activity_chooser_view_content=0x7f060025;
         public static final int addTaskDescriptionEditText=0x7f06004b;
         public static final int addTaskDueDateEditText=0x7f06004d;
         public static final int addTaskPriceEditText=0x7f06004c;
         public static final int addTaskResponsibleEditText=0x7f06004e;
-        public static final int add_task=0x7f060073;
+        public static final int add_task=0x7f060074;
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
         public static final int btnAccountNotification=0x7f06006f;
@@ -1416,6 +1416,7 @@ containing a value of this type.
         public static final int showTitle=0x7f060006;
         public static final int spinner1=0x7f060043;
         public static final int split_action_bar=0x7f06001e;
+        public static final int status=0x7f060072;
         public static final int submit_area=0x7f060039;
         public static final int tabMode=0x7f060002;
         public static final int task_desc=0x7f060057;
@@ -1430,7 +1431,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f060020;
         public static final int up=0x7f060021;
         public static final int useLogo=0x7f060003;
-        public static final int widget_textview=0x7f060072;
+        public static final int widget_textview=0x7f060073;
         public static final int withText=0x7f06000c;
     }
     public static final class integer {
@@ -1591,6 +1592,7 @@ containing a value of this type.
         public static final int doneTask=0x7f0b003c;
         public static final int drawer_close=0x7f0b001a;
         public static final int drawer_open=0x7f0b0019;
+        public static final int due=0x7f0b006b;
         public static final int hello_world=0x7f0b000f;
         public static final int info=0x7f0b0029;
         public static final int infoBox=0x7f0b0068;

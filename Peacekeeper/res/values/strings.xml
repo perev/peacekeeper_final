@@ -130,5 +130,6 @@
     </string>
     <string name="leaveGroup">Leave Group</string>
     <string name="widget_text">Testing widget</string>
+    <string name="due">Due:</string>
 
 </resources>
